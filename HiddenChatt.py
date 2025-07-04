@@ -37,5 +37,20 @@ def main():
     print("🤖 بات چت ناشناس روشنه!")
     app.run_polling()
 
-if __name__ == "__main__":
+from flask import Flask
+from threading import Thread
+import os
+
+app = Flask(_name_)
+
+@app.route("/")
+def home():
+    return "بات چت ناشناس روشنه!"
+
+def run_flask():
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
+
+if _name_ == "_main_":
+    Thread(target=run_flask).start()
     main()
