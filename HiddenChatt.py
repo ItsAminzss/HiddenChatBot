@@ -41,7 +41,7 @@ from flask import Flask
 from threading import Thread
 import os
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 @app.route("/")
 def home():
@@ -51,6 +51,6 @@ def run_flask():
     port = int(os.environ.get("PORT", 8080))
     app.run(host="0.0.0.0", port=port)
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     Thread(target=run_flask).start()
     main()
